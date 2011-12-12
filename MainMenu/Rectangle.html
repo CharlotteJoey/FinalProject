@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Rectangle</title>
+  <head>
+<body>
+<div class="class">
+
+<p>Rectangle()</br>
+
+{</br>
+
+    this.left = 0;</br>
+
+    this.top = 0;</br>
+
+    this.width = 0;</br>
+
+    this.height = 0;</br>
+
+    </p>
+
+    
+    <div class="function"><p>
+
+    this.startupRectangle = function(/**Number*/ left, /**Number*/ top, /**Number*/ width, /**Number*/ height)</br>
+
+    {</br>
+
+        this.left = left;</br>
+
+        this.top = top;</br>
+
+        this.width = width;</br>
+
+        this.height = height;</br>
+
+        return this;</br>
+
+    }</br>
+    </p>
+    </div>
+    
+
+    <div class="function"><p>
+
+    this.intersects = function(/**Rectangle*/ other)</br>
+
+    {</br>
+
+        if (this.left + this.width < other.left)</br>
+
+            return false;</br>
+
+        if (this.top + this.height < other.top)</br>
+
+            return false;</br>
+
+        if (this.left > other.left + other.width)</br>
+
+            return false;</br>
+
+        if (this.top > other.top + other.height)</br>
+
+            return false;</br>
+
+        </br>
+
+        return true;</br>
+
+    }</br>
+    </p>
+    </div>
+    
+
+}</br>
+</div>
+
+</body>
+</html>
+

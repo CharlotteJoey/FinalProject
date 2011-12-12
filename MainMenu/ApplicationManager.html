@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ApplicationManager</title>
+  <head>
+<body>
+<div class="class">
+<p>ApplicationManager()</br>
+{</br>
+    this.canvasWidth = 0;</br>
+    this.canvasHeight = 0;</br>
+</br>
+</p>
+    <div class="function">
+    this.startupApplicationManager = function(canvasWidth, canvasHeight)</br>
+    {</br>
+        <div class="application"><p>g_ApplicationManager = this;</br></div>
+        this.canvasWidth = canvasWidth;</br>
+        this.canvasHeight = canvasHeight;</br>
+</br>
+        this.openMainMenu();</br>
+</br>
+        return this;</br>
+    }</br>
+</div>
+</br>
+</p>
+<div class="function">
+<p>
+    this.startLevel = function()</br>
+    {</br>
+  <div class="GameObject">g_GameObjectManager.shutdownAll();</br></div>
+        this.level = new Level().startupLevel(this.canvasWidth, this.canvasHeight);</br>
+      <p>this.background3 = new RepeatingGameObject().startupRepeatingGameObject(g_ResourceManager.background2, 0, 100, 3, 600, 320, 0.75);</br>
+        this.background2 = new RepeatingGameObject().startupRepeatingGameObject(g_ResourceManager.background1, 0, 100, 2, 600, 320, 0.5);</br>
+        this.background = new RepeatingGameObject().startupRepeatingGameObject(g_ResourceManager.background0, 0, 0, 1, 600, 320, 0.25);</br></p>
+ <div class="player"><p>g_player = new Player().startupPlayer(this.level);</br></p></div>
+        this.updateScore();</br>
+    }</br>
+</br>
+</p>
+</div>
+<div class="function">
+
+    this.openMainMenu = function()</br>
+    {</br>
+        g_GameObjectManager.shutdownAll();</br>
+        <div class="GameObject">g_GameObjectManager.xScroll = 0;</br></div>
+        <div class="GameObject">g_GameObjectManager.yScroll = 0;</br></div>
+        <div class="score">g_score = 0;</br></div>
+        <p>this.mainMenu = new MainMenu().startupMainMenu();</br><p>
+    }</br>
+    </br>
+
+</div>
+<div class="function">
+<p>
+    this.updateScore = function()</br>
+    {</br>
+        var score = document.getElementById("Score");</br>
+        <div class="score"><p>score.innerHTML = String(g_score);</br></div>
+    }</br>
+    </p>
+</div>
+}</br>
+
+</div>
+
+</body>
+</html>

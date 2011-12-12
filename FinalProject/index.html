@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Final Project</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+    <link rel="stylesheet" href="scroll.css" type="text/css">
+    <script type="text/javascript" src="jquery-latest.js"></script>
+    <script type="text/javascript" src="jquery.effects.core.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+    <script type="text/javascript" src="jquery.effects.slide.js"></script>
+	<script type="text/javascript" src="jquery.ui.core.js"></script>
+	<script type="text/javascript" src="jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="jquery.ui.mouse.js"></script>
+	<script type="text/javascript" src="jquery.ui.slider.js"></script>
+	<script type="text/javascript" src="jquery.ui.accordion.js"></script>
+	<script type="text/javascript" src="scroll.js"></script>
+	<script type="text/javascript" src="classbc.js"></script>
+	<script type="text/javascript" src="classcc.js"></script>
+	<script type="text/javascript" src="classdc.js"></script>
+	<script type="text/javascript" src="classec.js"></script>
+	<script type="text/javascript" src="classfc.js"></script>
+	<script type="text/javascript" src="classhc.js"></script>
+	<script type="text/javascript" src="classic.js"></script>
+	<script type="text/javascript" src="classjc.js"></script>
+	<script type="text/javascript" src="classkc.js"></script>
+	<script type="text/javascript" src="classlc.js"></script>
+	<script type="text/javascript" src="classmc.js"></script>
+	<script type="text/javascript" src="classnc.js"></script>
+	<script type="text/javascript" src="global.js"></script>
+	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="canvas.js"></script>
+	
+  </head>
+  <body>
+    <div id="openWin">
+      <div id="fileTitle">X</div>
+      <div>
+        <dl id="classlinks">
+          <dt class="ac"><a href="MainMenu/AnimatedGameObject.html">AnimatedGameObject</a></dt>
+	      <dt class="bc"><a href="MainMenu/ApplicationManager.html">ApplicationManager</a></dt>
+	      <dt class="ccc"><a href="MainMenu/GameObject.html">GameObject</a></dt>
+	      <dt class="dc"><a href="MainMenu/GameObjectManager.html">GameObjectManager</a></dt>
+	      <dt class="ec"><a href="MainMenu/Level.html">Level</a></dt>
+	      <dt class="fc"><a href="MainMenu/LevelEndPost.html">LevelEndPost</a></dt>
+	      <dt class="hc"><a href="MainMenu/MainMenu.html">MainMenu</a></dt>
+	      <dt class="ic"><a href="MainMenu/Player.html">Player</a></dt>
+	      <dt class="jc"><a href="MainMenu/Powerup.html">Powerup</a></dt>
+	      <dt class="kc"><a href="MainMenu/Rectangle.html">Rectangle</a></dt>
+	      <dt class="lc"><a href="MainMenu/RepeatingGameObject.html">RepeatingGameObject</a></dt>
+	      <dt class="mc"><a href="MainMenu/ResourceManager.html">ResourceManager</a></dt>
+	      <dt class="nc"><a href="MainMenu/VisualGameObject.html">VisualGameObject</a></dt>
+	    </dl>
+	  </div>
+    </div>
+
+    <div id="controls">
+      <div id="logo" >Final Project</div>
+      <div id="panel" class="btn">Control panel</div>
+      <div id="open" class="btn">Source Code</div>
+      <div id="clear" class="btn">Clear All</div>
+      <div id="view" class="btn">Inheritance View</div>
+
+    </div>
+    
+<div id="effect">
+<div id="accordion">
+	<h3><a href="#">Resource View</a></h3>
+	<div>Drag the images below over the grey drop zone to capture their <em>drop data</em>
+	     <dl>
+	     <dt><a href="MainMenu/AnimatedGameObject.html">AnimatedGameObject</a></dt>
+	     <dt><a href="MainMenu/ApplicationManager.html">ApplicationManager</a></dt>
+	     <dt><a href="MainMenu/GameObject.html">GameObject</a></dt>
+	     <dt><a href="MainMenu/GameObjectManager.html">GameObjectManager</a></dt>
+	     <dt><a href="MainMenu/Level.html">Level</a></dt>
+	     <dt><a href="MainMenu/LevelEndPost.html">LevelEndPost</a></dt>
+	     <dt><a href="MainMenu/Main.html">Main</a></dt>
+	     <dt><a href="MainMenu/MainMenu.html">MainMenu</a></dt>
+	     <dt><a href="MainMenu/Player.html">Player</a></dt>
+	     <dt><a href="MainMenu/Powerup.html">Powerup</a></dt>
+	     <dt><a href="MainMenu/Rectangle.html">Rectangle</a></dt>
+	     <dt><a href="MainMenu/RepeatingGameObject.html">RepeatingGameObject</a></dt>
+	     <dt><a href="MainMenu/ResourceManager.html">ResourceManager</a></dt>
+	     <dt><a href="MainMenu/VisualGameObject.html">VisualGameObject</a></dt>
+	     </dl>
+	     <div id="show">show panel</div>
+	     <div id="empty">Remove Item</div>
+	</div>
+	<h3><a href="#">Compositon View</a></h3>
+      <div>
+          <dl id="compositelinks">
+          <dt id="as"><a href="MainMenu/AnimatedGameObject.html">AnimatedGameObject</a></dt>
+	      <dt id="bs"><a href="MainMenu/ApplicationManager.html">ApplicationManager</a></dt>
+	      <dt id="cs"><a href="MainMenu/GameObject.html">GameObject</a></dt>
+	      <dt id="ds"><a href="MainMenu/GameObjectManager.html">GameObjectManager</a></dt>
+	      <dt id="es"><a href="MainMenu/MainMenu.html">MainMenu</a></dt>
+	      <dt id="fs"><a href="MainMenu/Player.html">Player</a></dt>
+	      <dt id="gs"><a href="MainMenu/Powerup.html">Powerup</a></dt>
+	      <dt id="hs"><a href="MainMenu/Rectangle.html">Rectangle</a></dt>
+	      <dt id="is"><a href="MainMenu/ReapeatingGameObject.html">RepeatingGameObject</a></dt>
+	      <dt id="js"><a href="MainMenu/ResourceManager.html">ResourceManager</a></dt>
+	      <dt id="ks"><a href="MainMenu/VisualGameObject.html">VisualGameObject</a></dt>
+	    </dl>
+      </div>
+	<h3><a href="#">Clobal Variable View</a></h3>
+      <div>
+      <dl id="globallinks">
+          <dt id="aa"><a href="MainMenu/Main.html">g_score</a></dt>
+          <dt id="bb"><a href="MainMenu/Main.html">g_player</a></dt>
+          <dt id="cc"><a href="MainMenu/Main.html">g_GameObjectManager</a></dt>
+          <dt id="dd"><a href="MainMenu/Main.html">g_ApplicationManager</a></dt>
+          <dt id="ee"><a href="MainMenu/Main.html">g_ResourceManager</a></dt>
+      </dl>
+      </div>
+	
+	<h3><a href="#">Function Call</a></h3>
+      <div>
+        <dl id="functionlinks">
+          <dt>AnimatedGameObject
+          <dl>
+              <dt class="a"><a href="MainMenu/AnimatedGameObject.html">startupAnimatedGameObject</a></dt>
+              <dt class="b"><a href="MainMenu/AnimatedGameObject.html">setAnimation</a></dt>
+              <dt class="c"><a href="MainMenu/AnimatedGameObject.html">draw</a></dt>
+              <dt class="d"><a href="MainMenu/AnimatedGameObject.html">shutdownAnimatedGameObject</a></dt>
+              <dt class="e"><a href="MainMenu/AnimatedGameObject.html">shutdown</a></dt>
+              <dt class="f"><a href="MainMenu/AnimatedGameObject.html">collisionArea</a></dt>
+          </dl>
+          </dt>
+          <dt>GameObject
+          <dl>
+              <dt class="a"><a href="MainMenu/GameObject.html">startupGameOject</a></dt>
+              <dt class="b"><a href="MainMenu/GameObject.html">shutdownGameOject</a></dt>
+              <dt class="c"><a href="MainMenu/GameObject.html">shutdown</a></dt>
+          </dl>
+          </dt>
+          <dt>ApplicationManager
+          <dl>
+              <dt class="a"><a href="MainMenu/ApplicationManager.html">startupApplicationManager</a></dt>
+              <dt class="b"><a href="MainMenu/ApplicationManager.html">startLevel</a></dt>
+              <dt class="c"><a href="MainMenu/ApplicationManager.html">openMainMenu</a></dt>
+              <dt class="d"><a href="MainMenu/ApplicationManager.html">updateScore</a></dt>
+        </dl>
+        </dt>
+        <dt>GameObjectManager
+          <dl>
+              <dt class="a"><a href="MainMenu/GameObjectManager.html">startupGameObjectManager</a></dt>
+              <dt class="b"><a href="MainMenu/GameObjectManager.html">draw</a></dt>
+              <dt class="c"><a href="MainMenu/GameObjectManager.html">shutdownAll</a></dt>
+              <dt class="d"><a href="MainMenu/GameObjectManager.html">addGameObject</a></dt>
+              <dt class="e"><a href="MainMenu/GameObjectManager.html">addNewGameObjects</a></dt>
+              <dt class="f"><a href="MainMenu/GameObjectManager.html">removeGameObject</a></dt>
+              <dt class="g"><a href="MainMenu/GameObjectManager.html">removeOldGameObject</a></dt>
+              <dt class="h"><a href="MainMenu/GameObjectManager.html">keyDown</a></dt>
+              <dt class="i"><a href="MainMenu/GameObjectManager.html">keyUp</a></dt>
+          </dl>
+          </dt>
+          <dt>Level
+          <dl>
+              <dt class="a"><a href="MainMenu/Level.html">startupLevel</a></dt>
+              <dt class="b"><a href="MainMenu/Level.html">addBlocks</a></dt>
+              <dt class="c"><a href="MainMenu/Level.html">addPowerup</a></dt>
+              <dt class="d"><a href="MainMenu/Level.html">currentBlock</a></dt>
+              <dt class="e"><a href="MainMenu/Level.html">groundHeight</a></dt>
+          </dl>
+          </dt>
+          <dt>LevelEndPost
+          <dl>
+              <dt class="a"><a href="MainMenu/LevelEndPost.html">startupLevelEndPost</a></dt>
+              <dt class="b"><a href="MainMenu/LevelEndPost.html">shutdown</a></dt>
+              <dt class="c"><a href="MainMenu/LevelEndPost.html">shutdownEndPost</a></dt>
+              <dt class="d"><a href="MainMenu/LevelEndPost.html">update</a></dt>
+          </dl>
+          </dt>
+          <dt>Main
+          <dl>
+              <dt class="a"><a href="MainMenu/Main.html">init</a></dt>
+          </dl>
+          </dt>
+          <dt>MainMenu
+          <dl>
+              <dt class="a"><a href="MainMenu/MainMenu.html">startupMainMenu</a></dt>
+              <dt class="b"><a href="MainMenu/MainMenu.html">keyDown</a></dt>
+          </dl>
+          </dt>
+          <dt>Player
+          <dl>
+              <dt class="a"><a href="MainMenu/Player.html">startupPlayer</a></dt>
+              <dt class="b"><a href="MainMenu/Player.html">keyDown</a></dt>
+              <dt class="c"><a href="MainMenu/Player.html">keyUp</a></dt>
+              <dt class="d"><a href="MainMenu/Player.html">updateAnimation</a></dt>
+              <dt class="e"><a href="MainMenu/Player.html">update</a></dt>
+          </dl>
+          </dt>
+          <dt>Powerup
+          <dl>
+              <dt class="a"><a href="MainMenu/Powerup.html">startupPowerup</a></dt>
+              <dt class="b"><a href="MainMenu/Powerup.html">shutdownPowerup</a></dt>
+              <dt class="c"><a href="MainMenu/Powerup.html">update</a></dt>
+          </dl>
+          </dt>
+          <dt>Rectangle
+          <dl>
+              <dt class="a"><a href="MainMenu/Rectangle.html">startupRectangle</a></dt>
+              <dt class="b"><a href="MainMenu/Rectangle.html">intersects</a></dt>
+          </dl>
+          </dt>
+          <dt>RepeatingGameObject
+          <dl>
+              <dt class="a"><a href="MainMenu/RepeatingGameObject.html">startupRepeatingGameObject</a></dt>
+              <dt class="b"><a href="MainMenu/RepeatingGameObject.html">shutdownstartupRepeatingGameObject</a></dt>
+              <dt class="c"><a href="MainMenu/RepeatingGameObject.html">draw</a></dt>
+              <dt class="d"><a href="MainMenu/RepeatingGameObject.html">drawRepeat</a></dt>
+          </dl>
+          </dt>
+          <dt>ResourceManager
+          <dl>
+              <dt class="a"><a href="MainMenu/ResourceManager.html">startupResourceManager</a></dt>
+          </dl>
+          </dt>
+          <dt>VisualGameObject
+          <dl>
+              <dt class="a"><a href="MainMenu/VisualGameObject.html">draw</a></dt>
+              <dt class="b"><a href="MainMenu/VisualGameObject.html">startupVisualGameObject</a></dt>
+              <dt class="c"><a href="MainMenu/VisualGameObject.html">shutdownVisualGameObject</a></dt>
+              <dt class="d"><a href="MainMenu/VisualGameObject.html">shutdown</a></dt>
+              <dt class="e"><a href="MainMenu/VisualGameObject.html">collisionArea</a></dt>
+          </dl>
+          </dt>
+      </div>
+</div>
+</div>
+
+<div id="canvas">
+    <div class="canvas-bar"></div>
+    <div class="scroll-canvas">
+    <div class="scroll-pane0 ui-corner-all">
+    <div class="scroll-title0">X</div>
+    <div class="scroll-bar0"></div>
+    <div class="scroll-content0"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical0"></div>
+    </div>
+    
+    <div class="scroll-pane1 ui-corner-all">
+    <div class="scroll-title1">X</div>
+    <div class="scroll-bar1"></div>
+    <div class="scroll-content1"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical1"></div>
+    </div>
+    
+    <div class="scroll-pane2 ui-corner-all">
+    <div class="scroll-title2">X</div>
+    <div class="scroll-bar2"></div>
+    <div class="scroll-content2"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical2"></div>
+    </div>
+    
+    <div class="scroll-pane3 ui-corner-all">
+    <div class="scroll-title3">X</div>
+    <div class="scroll-bar3"></div>
+    <div class="scroll-content3"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical3"></div>
+    </div>
+    
+    <div class="scroll-pane4 ui-corner-all">
+    <div class="scroll-title4">X</div>
+    <div class="scroll-bar4"></div>
+    <div class="scroll-content4"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical4"></div>
+    </div>
+    
+    <div class="scroll-pane5 ui-corner-all">
+    <div class="scroll-title5">X</div>
+    <div class="scroll-bar5"></div>
+    <div class="scroll-content5"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical5"></div>
+    </div>
+    
+    <div class="scroll-pane7 ui-corner-all">
+    <div class="scroll-title7">X</div>
+    <div class="scroll-bar7"></div>
+    <div class="scroll-content7"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical7"></div>
+    </div>
+    
+    <div class="scroll-pane8 ui-corner-all">
+    <div class="scroll-title8">X</div>
+    <div class="scroll-bar8"></div>
+    <div class="scroll-content8"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical8"></div>
+    </div>
+    
+    <div class="scroll-pane9 ui-corner-all">
+    <div class="scroll-title9">X</div>
+    <div class="scroll-bar9"></div>
+    <div class="scroll-content9"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical9"></div>
+    </div>
+    
+    <div class="scroll-pane10 ui-corner-all">
+    <div class="scroll-title10">X</div>
+    <div class="scroll-bar10"></div>
+    <div class="scroll-content10"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical10"></div>
+    </div>
+    
+    <div class="scroll-pane11 ui-corner-all">
+    <div class="scroll-title11">X</div>
+    <div class="scroll-bar11"></div>
+    <div class="scroll-content11"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical11"></div>
+    </div>
+    
+    <div class="scroll-pane12 ui-corner-all">
+    <div class="scroll-title12">X</div>
+    <div class="scroll-bar12"></div>
+    <div class="scroll-content12"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical12"></div>
+    </div>
+    
+    <div class="scroll-pane13 ui-corner-all">
+    <div class="scroll-title13">X</div>
+    <div class="scroll-bar13"></div>
+    <div class="scroll-content13"></div>
+    <div class="scroll-bar-wrap ui-corner-left"></div>
+    <div class="scroll-vertical13"></div>
+    </div>
+    </div>
+    
+
+    <div class="pane ui-corner-all">
+    <div class="scroll-title">X</div>
+    <div class="content"></div>
+    <div class="vertical"></div>
+    </div>
+
+    <div id="global">
+    <div class="name1"></div>
+    <div id="global1"></div>
+    <div class="name2"></div>
+    <div id="global2"></div>
+    <div class="name3"></div>
+    <div id="global3"></div>
+    <div class="name4"></div>
+    <div id="global4"></div>
+    <div class="name5"></div>
+    <div id="global5"></div>
+    </div>
+
+    <div id="drop"></div>
+</div>
+  </body>
+</html>
+  

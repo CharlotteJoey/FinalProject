@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GameObjectManager</title>
+  </head>
+<body>
+<div class="class">
+<p>GameObjectManager()</br>
+{</br>
+</br>
+    this.gameObjects = new Array();</br>
+    this.addedGameObjects = new Array();</br>
+    this.removedGameObjects = new Array();</br>
+    this.lastFrame = new Date().getTime();</br>
+    this.xScroll = 0;</br>
+    this.yScroll = 0;</br>
+    this.canvas = null;</br>
+    this.context2D = null;</br>
+    this.backBuffer = null;</br>
+    this.backBufferContext2D = null;</br>
+    this.canvasSupported = false;</br>
+    this.resourcesLoaded = false;</br>
+	this.loadingScreenCol = 0;</br>
+	this.loadingScreenColDirection = 1;</br>
+	this.loadingScreenColSpeed = 255;</br>
+    </br>
+    </p>
+    <div class="function">
+    <p>
+    this.startupGameObjectManager = function()</br>
+    {</br>
+    
+        <div class="GameObject">g_GameObjectManager = this;</br>
+        </br>
+        document.onkeydown = function(event){g_GameObjectManager.keyDown(event);}</br>
+        document.onkeyup = function(event){g_GameObjectManager.keyUp(event);}</br></br>
+        </div>
+        
+        </br>
+        this.canvas = document.getElementById('canvas');</br>
+        </br>
+        if (this.canvas.getContext)</br>
+        {</br>
+            this.canvasSupported = true;</br>
+            this.context2D = this.canvas.getContext('2d');</br>
+            this.backBuffer = document.createElement('canvas');</br>
+            this.backBuffer.width = this.canvas.width;</br>
+            this.backBuffer.height = this.canvas.height;</br>
+            this.backBufferContext2D = this.backBuffer.getContext('2d');</br>
+        }</br>
+        </p>
+        </div>
+        
+        <p>
+        new ResourceManager().startupResourceManager(</br>
+            [{name: 'runLeft', src: 'run_left.png'},</br>
+            {name: 'runRight', src: 'run_right.png'},</br>
+            {name: 'idleLeft', src: 'idle_left.png'},</br>
+            {name: 'idleRight', src: 'idle_right.png'},</br>
+            {name: 'background0', src: 'jsplatformer4_b0.png'},</br>
+            {name: 'background1', src: 'jsplatformer4_b1.png'},</br>
+            {name: 'background2', src: 'jsplatformer4_b2.png'},</br>
+            {name: 'block', src: 'BlockA0.png'},</br>
+            {name: 'gem', src: 'Gem.png'},</br>
+            {name: 'mainmenu', src: 'mainmenu.png'},</br>
+            {name: 'portal', src: 'portal.png'}]);</br>
+            </br>
+            </p>
+            
+        <div class="GameObject">setInterval(function(){g_GameObjectManager.draw();}, SECONDS_BETWEEN_FRAMES);</br></div>
+        
+        return this;  </br>      
+    }</br>
+    </p>
+    
+    
+    <div class="function">
+    this.draw = function ()</br>
+    {</br>
+        </br>
+        var thisFrame = new Date().getTime();</br>
+        var dt = (thisFrame - this.lastFrame)/1000;</br>
+        this.lastFrame = thisFrame;</br>
+        </br>
+        if (!this.resourcesLoaded)</br>
+        {</br>
+            var numLoaded = 0;</br>
+            <div class="resource"><p>for (i = 0; i < g_ResourceManager.imageProperties.length; ++i)</br>
+            {</br>
+            <p>if (g_ResourceManager[g_ResourceManager.imageProperties[i]].complete)</br>
+                {</br>
+                    ++numLoaded;</br>
+                }</br>
+            }</br>
+            <p>if ( numLoaded == g_ResourceManager.imageProperties.length )</br></div>
+            {</br>
+             <div><p>new ApplicationManager().startupApplicationManager(this.canvas.width, this.canvas.height);</br></div>
+                this.resourcesLoaded = true;</br>
+            }</br>
+            else</br>
+            {</br>
+                this.loadingScreenCol += this.loadingScreenColDirection * this.loadingScreenColSpeed * dt;</br>
+                if (this.loadingScreenCol > 255)</br>
+                {</br>
+                    this.loadingScreenCol = 255;</br>
+                    this.loadingScreenColDirection = -1;</br>
+                }</br>
+                else if (this.loadingScreenCol < 0)</br>
+                {</br>
+                    this.loadingScreenCol = 0;</br>
+                    this.loadingScreenColDirection = 1;</br>
+                }</br>
+                this.context2D.fillStyle = "rgb(" + parseInt(this.loadingScreenCol) + "," + parseInt(this.loadingScreenCol) + "," + parseInt(this.loadingScreenCol) + ")";</br>
+                this.context2D.fillRect (0, 0, this.canvas.width, this.canvas.height);</br>
+            }</br>
+        }</br>
+</br>
+        if (this.canvasSupported && this.resourcesLoaded)</br>
+        {</br>
+            this.backBufferContext2D.clearRect(0, 0, this.backBuffer.width, this.backBuffer.height);</br>
+            </br>
+            this.addNewGameObjects();</br>
+            this.removeOldGameObjects();</br>
+            </br>
+            for (var x = 0; x < this.gameObjects.length; ++x)</br>
+            {</br>
+                if (this.gameObjects[x].update)</br>
+                {</br>
+                    this.gameObjects[x].update(dt, this.backBufferContext2D, this.xScroll, this.yScroll);</br>
+                }</br>
+            }</br>
+
+            </br></br>
+            for (var x = 0; x < this.gameObjects.length; ++x)
+            {</br>
+                if (this.gameObjects[x].draw)</br>
+                {</br>
+                    this.gameObjects[x].draw(dt, this.backBufferContext2D, this.xScroll, this.yScroll);</br>
+                }</br>
+            }</br>
+
+            </br>
+            this.context2D.drawImage(this.backBuffer, 0, 0);</br>
+        }   </br>     
+    };</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.shutdownAll = function()</br>
+    {</br>
+        for (var x = 0; x < this.gameObjects.length; ++x)</br>
+        {</br>
+            if (this.gameObjects[x].shutdown)</br>
+            {</br>
+                this.gameObjects[x].shutdown();</br>
+            }</br>
+        }</br>
+        </br>
+        this.removeOldGameObjects();</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.addGameObject = function(gameObject)</br>
+    {</br>
+        this.addedGameObjects.push(gameObject);</br>
+    };</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.addNewGameObjects = function()</br>
+    {</br>
+        if (this.addedGameObjects.length != 0)</br>
+        {</br>
+            for (var x = 0; x < this.addedGameObjects.length; ++x)</br>
+            {</br>
+                this.gameObjects.push(this.addedGameObjects[x]);</br>
+            }</br>
+            </br>
+            this.addedGameObjects.clear();</br>
+            this.gameObjects.sort(function(a,b){return a.zOrder - b.zOrder;});</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.removeGameObject = function(gameObject)</br>
+    {</br>
+        this.removedGameObjects.push(gameObject);</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.removeOldGameObjects = function()</br>
+    {</br>
+        if (this.removedGameObjects.length != 0)</br>
+        {</br>
+            for (var x = 0; x < this.removedGameObjects.length; ++x)</br>
+            {</br>
+                this.gameObjects.removeObject(this.removedGameObjects[x]);</br>
+            }</br>
+            this.removedGameObjects.clear();</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.keyDown = function(event)</br>
+    {</br>
+        for (var x = 0; x < this.gameObjects.length; ++x)</br>
+        {</br>
+            if (this.gameObjects[x].keyDown)</br>
+            {</br>
+                this.gameObjects[x].keyDown(event);</br>
+            }</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.keyUp = function(event)</br>
+    {</br>
+        for (var x = 0; x < this.gameObjects.length; ++x)</br>
+        {</br>
+            if (this.gameObjects[x].keyUp)</br>
+            {</br>
+                this.gameObjects[x].keyUp(event);</br>
+            }</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+}
+</div>
+</body>
+</html>

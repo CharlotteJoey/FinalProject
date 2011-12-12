@@ -1,0 +1,28 @@
+.control { width:600px;
+          position:relative;
+          height:500px;
+          margin:0px 45px;
+          background-color:white;
+          border: 5px dashed #B9B9B9;
+          -webkit-border-radius: 10px;
+          display:inline-block;
+          }
+
+.coloum { width: 30%;
+         position:relative;
+         float:left;
+         display:inline-block;
+         }
+
+.unit{ 
+  padding: 5px;
+  margin:10px;
+  height:20px;
+
+  cursor : pointer;
+  font-family: Georgia, serif;
+  font-size : 12px;
+  -webkit-border-radius: 5px;
+}
+
+

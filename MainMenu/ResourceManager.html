@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ResourceManager</title>
+  <head>
+<body>
+<div class="class">
+<p>ResourceManager()</br>
+{</br>
+	
+    this.imageProperties = null;</br>
+    </br><p>
+    
+    <div class="function"><p>
+    this.startupResourceManager = function(/**Array*/ images)</br>
+    {</br>
+		<div class="resource">g_ResourceManager = this;</br></div>
+        </br>
+        this.imageProperties = new Array();</br>
+        </br>
+        for ( var i = 0; i < images.length; i++ )</br>
+		{</br>
+		
+			var thisImage = new Image;</br>
+			this[images[i].name] = thisImage;</br>
+			this.imageProperties.push(images[i].name);</br>
+            </br>
+			thisImage.src = images[i].src;</br>
+		}</br>
+
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+    
+}</br>
+</div>
+
+</body>
+</html>

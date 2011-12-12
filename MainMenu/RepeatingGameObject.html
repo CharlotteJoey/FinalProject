@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>RepeatingGameObject</title>
+  <head>
+<body>
+<div class="class">
+<p>RepeatingGameObject()</br>
+{</br>
+
+	this.width = 0;</br>
+	</br>
+    this.height = 0;</br>
+	</br>
+    this.scrollFactor = 1;</br>
+	</br>
+    </p>
+    
+    <div class="function">
+    this.startupRepeatingGameObject = function(image, x, y, z, width, height, scrollFactor)</br>
+    {</br>
+        <p>this.startupVisualGameObject(image, x, y, z);</br></p>
+        this.width = width;</br>
+        this.height = height;</br>
+        this.scrollFactor = scrollFactor;</br>
+        return this;</br>
+    }</br>
+    </div>
+	
+    <div class="function"><p>
+    this.shutdownstartupRepeatingGameObject = function()</br>
+    {</br>
+        <p>this.shutdownVisualGameObject();</br></p>
+    }</br>
+    </p>
+    </div>
+    
+	<div class="function"><p>
+    this.draw = function(dt, canvas, xScroll, yScroll)</br>
+    {</br>
+        var areaDrawn = [0, 0];</br>
+        </br>
+        for (var y = 0; y < this.height; y += areaDrawn[1])</br>
+        {</br>
+            for (var x = 0; x < this.width; x += areaDrawn[0])</br>
+            {</br>
+        
+				var newPosition = [this.x + x, this.y + y];</br>
+				</br>
+                var newFillArea = [this.width - x, this.height - y];</br>
+				</br>
+                var newScrollPosition = [0, 0];
+                if (x==0) newScrollPosition[0] = xScroll * this.scrollFactor;</br>
+                if (y==0) newScrollPosition[1] = yScroll * this.scrollFactor;</br>
+                areaDrawn = this.drawRepeat(canvas, newPosition, newFillArea, newScrollPosition);</br>
+            }</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.drawRepeat = function(canvas, newPosition, newFillArea, newScrollPosition)</br>
+    {</br>
+       
+        var xOffset = Math.abs(newScrollPosition[0]) % this.image.width;</br>
+        var yOffset = Math.abs(newScrollPosition[1]) % this.image.height;</br>
+        var left = newScrollPosition[0]<0?this.image.width-xOffset:xOffset;</br>
+        var top = newScrollPosition[1]<0?this.image.height-yOffset:yOffset;</br>
+        var width = newFillArea[0] < this.image.width-left?newFillArea[0]:this.image.width-left;</br>
+        var height = newFillArea[1] < this.image.height-top?newFillArea[1]:this.image.height-top;</br>
+</br>
+        canvas.drawImage(this.image, left, top, width, height, newPosition[0], newPosition[1], width, height);</br>
+        </br>
+        return [width, height];</br>
+    }</br>
+    </p>
+    </div>
+
+}</br>
+</div>
+   
+<div><p>
+RepeatingGameObject.prototype = new VisualGameObject();</br>
+</p></div>
+
+</body>
+</html>
+
+

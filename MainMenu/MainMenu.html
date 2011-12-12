@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MainMenu</title>
+  <head>
+<body>
+<div class="class"><p>
+MainMenu()</br>
+{</br>
+    </p>
+    
+    <div class="function"><p>
+    this.startupMainMenu = function()</br>
+    {</br>
+        <div class="resource"><p>this.startupVisualGameObject(g_ResourceManager.mainmenu, 0, 0, 1);</div></br>
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+ 
+    <div class="function"><p>
+    this.keyDown = function(event)</br>
+    {</br>
+        <div class="application">g_ApplicationManager.startLevel();</br></div>
+    }</br>
+    </p>
+</div>
+}</br>
+
+</div>
+
+<div><p>
+MainMenu.prototype = new VisualGameObject;</br>
+</p>
+</div>
+
+</body>
+</thml>

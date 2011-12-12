@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LevelEndPost</title>
+  <head>
+<body>
+
+<div class="class">
+<p>LevelEndPost()</br></p>
+{</br>
+    <div class="function"><p>
+    this.startupLevelEndPost = function(/**Image*/ image, /**Number*/ x, /**Number*/ y, /**Number*/ z)</br>
+    {</br>
+   <div class="anim"><p>this.startupAnimatedGameObject(image, x, y, z, 4, 10);</br></div>
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.shutdown = function()</br>
+    {</br>
+        this.shutdownLevelEndPost();</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.shutdownLevelEndPost = function()</br>
+    {</br>
+        <div class="anim"><p>this.shutdownAnimatedGameObject();</br></div>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+	this.update = function (/**Number*/ dt, /**CanvasRenderingContext2D*/context, /**Number*/ xScroll, /**Number*/ yScroll)</br>
+    {</br>
+        if (this.collisionArea().intersects(g_player.collisionArea()))</br>
+        {</br>
+            <div class="application"><p>g_ApplicationManager.openMainMenu();</br></div>
+            this.shutdown();       </br>     
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+}</br>
+</div>
+
+<div></p>
+LevelEndPost.prototype = new AnimatedGameObject;</br>
+</div>
+
+</body>
+</html>

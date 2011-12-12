@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>AnimatedGameObject</title>
+</head>
+
+<body>
+<div class="class">
+<p>AnimatedGameObject()</br>
+{</br>
+    this.currentFrame = 0;</br>
+    this.timeBetweenFrames = 0;</br>
+    this.timeSinceLastFrame = 0;</br>
+    this.frameWidth = 0;</br>
+</p>
+    
+    <div class="function">
+    
+    this.startupAnimatedGameObject = function(/**Image*/ image, /**Number*/ x, /**Number*/ y, /**Number*/ z, /**Number*/ frameCount, /**Number*/ fps)</br>
+    {</br>
+        if (frameCount <= 0) throw "framecount can not be <= 0";</br>
+        if (fps <= 0) throw "fps can not be <= 0"</br>
+        </br>
+        <p>this.startupVisualGameObject(image, x, y, z);</br></p>
+        this.currentFrame = 0;</br>
+        this.frameCount = frameCount;</br>
+        this.timeBetweenFrames = 1/fps;</br>
+        this.timeSinceLastFrame = this.timeBetweenFrames;</br>
+        this.frameWidth = this.image.width / this.frameCount;</br>
+        </br>
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+    
+    
+    <div class="function">
+    this.setAnimation = function(/**Image*/ image, /**Number*/ frameCount, /**Number*/ fps)</br>
+    {</br>
+         if (frameCount <= 0) throw "framecount can not be <= 0";</br>
+         if (fps <= 0) throw "fps can not be <= 0"</br>
+        </br>
+        <p>this.image = image;</br></p>
+        this.currentFrame = 0;</br>
+        this.frameCount = frameCount;</br>
+        this.timeBetweenFrames = 1/fps;</br>
+        this.timeSinceLastFrame = this.timeBetweenFrames;</br>
+        this.frameWidth = this.image.width / this.frameCount;</br>
+    }</br>
+    </br>
+    </div>
+    
+    
+    <div class="function">
+    this.draw = function(/**Number*/ dt, /**CanvasRenderingContext2D*/ context, /**Number*/ xScroll, /**Number*/ yScroll)</br>
+    {</br>
+        var sourceX = this.frameWidth * this.currentFrame;</br>
+        context.drawImage(this.image, sourceX, 0, this.frameWidth, this.image.height, this.x - xScroll, this.y - yScroll, this.frameWidth, this.image.height);</br>
+        </br>
+        this.timeSinceLastFrame -= dt;</br>
+        if (this.timeSinceLastFrame <= 0)</br>
+        {</br>
+           this.timeSinceLastFrame = this.timeBetweenFrames;</br>
+           ++this.currentFrame;</br>
+           this.currentFrame %= this.frameCount;</br>
+        }</br>
+    }</br>
+    ></div>
+   
+   
+    <div class="function"><p>
+    this.shutdownAnimatedGameObject = function()</br>
+    {</br>
+        <p>this.shutdownVisualGameObject();</br></p>
+    }</br>
+    </br>
+    </p>
+    </div>
+    
+    
+    <div class="function"><p>
+    this.shutdown = function()</br>
+    {</br>
+        this.shutdownAnimatedGameObject();</br>
+    }</br>
+    </br>
+    </p>
+    </div>
+    
+    
+    <div class="function"><p>
+    this.collisionArea = function()</br>
+    {</br>
+        <p>return new Rectangle().startupRectangle(this.x, this.y, this.frameWidth, this.image.height);</br></p>
+    }</br>
+    </p>
+</div>
+}</br>
+
+</div>
+<div><p>
+AnimatedGameObject.prototype = new VisualGameObject;
+</p>
+</div>
+
+</body>
+</html>

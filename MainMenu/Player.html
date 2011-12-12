@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Player</title>
+  <head>
+<body>
+
+<div class="class">
+<p>Player()</br>
+{</br>
+    this.jumpHeight = 64;</br>
+    </br>
+    this.halfPI = Math.PI / 2;</br>
+    </br>
+    this.jumpHangTime = 0.5;</br> 
+    </br>
+    this.jumpSinWaveSpeed = this.halfPI / this.jumpHangTime;</br>
+    </br>
+    this.jumpSinWavePos = 0;</br>
+    </br>
+    this.fallMultiplyer = 1.5;</br>
+    </br>
+    this.grounded = true;</br>
+    </br>
+    this.speed = 75;</br>
+    </br>
+    this.left = false;</br>
+    </br>
+    this.right = false;</br>
+    </br>
+    this.level = null;</br>
+    </br>
+    this.screenBorder = 100;</br>
+    </br>
+    </p>
+    
+    <div class="function">
+    this.startupPlayer = function(level)</br>
+    {</br>
+        <div class="resource"><p>this.startupAnimatedGameObject(g_ResourceManager.idleLeft, 300, 400 - 48 - 48, 4, 6, 20);</div></br>
+        this.level = level;</br>
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.keyDown = function(event)</br>
+    {</br>
+        var updateRequired = false;</br>
+        </br>
+        if (event.keyCode == 37 && !this.left)</br>
+        {</br>
+            this.left = true;</br>
+            updateRequired = true;</br>
+        }</br>
+        </br>
+        if (event.keyCode == 39 && !this.right</br>)
+        {</br>
+            this.right = true;</br>
+            updateRequired = true;</br>
+        }</br>
+        if (event.keyCode == 32 && this.grounded)</br>
+        {</br>
+            this.grounded = false;</br>
+            this.jumpSinWavePos = 0;</br>
+        }</br>
+        </br>
+        if (updateRequired)</br>
+            this.updateAnimation();</br>
+
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.keyUp = function(event)</br>
+    {</br>
+        if (event.keyCode == 37)</br>
+        {</br>
+            this.left = false;</br>
+            <div class="resource"><p>this.setAnimation(g_ResourceManager.idleLeft, 6, 20);</div></br>
+        }</br>
+        </br>
+        if (event.keyCode == 39)</br>
+        {</br>
+            this.right = false;</br>
+            <div class="resource"><p>this.setAnimation(g_ResourceManager.idleRight, 6, 20);</div></br>
+        }</br>
+        </br>
+        this.updateAnimation();</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.updateAnimation = function()</br>
+    {</br>
+       if (this.right && this.left)</br>
+            <div id="resource">this.setAnimation(g_ResourceManager.idleLeft, 6, 20);</br></div>
+        else if (this.right)</br>
+<div class="resource"><p>this.setAnimation(g_ResourceManager.runRight, 12, 20);</div></br>
+        else if (this.left)</br>
+            <div class="resource"><p>this.setAnimation(g_ResourceManager.runLeft, 12, 20);</div></br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"><p>
+	this.update = function (/**Number*/ dt, /**CanvasRenderingContext2D*/context, /**Number*/ xScroll, /**Number*/ yScroll)</br>
+    {</br>
+        if (this.left)</br>
+            this.x -= this.speed * dt;</br>
+        if (this.right)</br>
+            this.x += this.speed * dt;</br>
+
+        </br>
+        if ((this.right || this.left) && !(this.left && this.right))</br>
+        {</br>
+            var collision = false;</br>
+            </br>
+            do</br>
+            {</br></br>
+             <p>var xPos = this.left ? this.x : this.x + this.frameWidth;
+                </br></p>
+                var currentBlock = this.level.currentBlock(xPos);</br>
+                </br>
+                var groundHeight = this.level.groundHeight(currentBlock);</br>
+                </br>
+                var playerHeight = context.canvas.height - (this.y + this.image.height);</br>
+                </br>
+                if (playerHeight  < groundHeight)</br>
+                {</br>
+                    collision = true;</br>
+                    </br>
+                        this.x = this.level.blockWidth * currentBlock - this.frameWidth - 1;</br>
+                    </br>
+                    else</br>
+                        this.x = this.level.blockWidth * (currentBlock + 1);</br>
+                }</br>
+                else</br>
+                {</br>
+                    collision = false;</br>
+                }</br>
+            }  while (collision)</br>
+        }</br>
+
+        </br>
+     <p>if (this.x > this.level.blocks.length * this.level.blockWidth - this.frameWidth - 1)</br>
+            this.x = this.level.blocks.length * this.level.blockWidth - this.frameWidth - 1;</br>
+        if (this.x > context.canvas.width - this.frameWidth + xScroll -  this.screenBorder)</br>
+            <div class="GameObject"><p>g_GameObjectManager.xScroll = this.x - (context.canvas.width - this.frameWidth -  this.screenBorder);</br></div>
+        </br>
+        if (this.x < 0)</br>
+            this.x = 0;</br>
+        if (this.x -  this.screenBorder < xScroll)</br>
+            <div class="GameObject"><p>g_GameObjectManager.xScroll = this.x - this.screenBorder;</br></div>
+
+        </br>
+        if (!this.grounded)</br>
+        {</br>
+            var lastHeight = this.jumpSinWavePos;</br>
+            </br>
+            this.jumpSinWavePos += this.jumpSinWaveSpeed * dt;</br>
+            </br>
+            if (this.jumpSinWavePos >= Math.PI)</br>
+                 this.y += this.jumpHeight / this.jumpHangTime * this.fallMultiplyer * dt;</br>
+            </br>
+            else</br>
+                this.y -= (Math.sin(this.jumpSinWavePos) - Math.sin(lastHeight)) * this.jumpHeight;</br>
+        }
+</br>
+        var currentBlock1 = this.level.currentBlock(this.x);</br>
+        </br>
+      <p>var currentBlock2 = this.level.currentBlock(this.x + this.frameWidth);</br></p>
+        </br>
+        var groundHeight1 = this.level.groundHeight(currentBlock1);</br>
+        </br>
+        var groundHeight2 = this.level.groundHeight(currentBlock2);</br>
+        </br>
+        var maxGroundHeight = groundHeight1 > groundHeight2 ? groundHeight1 : groundHeight2;</br>
+        </br>
+        var playerHeight = context.canvas.height - (this.y + this.image.height);</br>
+        </br>
+        
+        if (maxGroundHeight >= playerHeight)</br>
+        {</br>
+            this.y = context.canvas.height - maxGroundHeight - this.image.height;</br>
+            this.grounded = true;</br>
+            this.jumpSinWavePos = 0;</br>
+        }</br>
+        </br>
+        else if (this.grounded)</br>
+        {</br>
+            this.grounded = false;</br>
+            </br>
+            this.jumpSinWavePos = this.halfPI;</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+}</br>
+</div>
+
+<div><p>
+Player.prototype = new AnimatedGameObject;</br>
+</p></div>
+
+</body>
+</html>
+
+

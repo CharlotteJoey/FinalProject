@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>GameObject</title>
+</head>
+
+
+<body>
+<div class="class">
+<p>GameObject()</br>
+{</br>
+    this.zOrder = 0;</br>
+    this.x = 0;</br>
+    this.y = 0;</br>
+</p>
+
+    <div class="function"><p>
+    
+    this.startupGameObject = function(/**Number*/ x, /**Number*/ y, /**Number*/ z)</br>
+    {</br>
+        this.zOrder = z;</br>
+        this.x = x;</br>
+        this.y = y;</br>
+      <div class="GameObject">g_GameObjectManager.addGameObject(this);</br></div>
+        return this;</br>
+    }
+ </br>   
+    </p>
+    </div>
+
+    <div class="function"><p>
+    this.shutdownGameObject = function()</br>
+    {</br>
+        <div class="GameObject">g_GameObjectManager.removeGameObject(this);</br></div>
+    }
+</br>   
+    </p>
+    </div>
+    <div class="function"><p>
+    this.shutdown = function()</br>
+    {</br>
+         this.shutdownGameObject();</br>
+    }
+</br> 
+    </p>
+    </div>
+}</br>
+
+</div>
+</body>
+</html>

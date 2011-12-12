@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GameObjectManager</title>
+  <head>
+<body>
+<div class="class">
+<p>Level()</br>
+{</br>
+    this.blocks = new Array();</br>
+    this.powerups = new Object;</br>
+    this.blockWidth = 64;</br>
+    this.blockHeight = 48;</br>
+    </p>
+    
+    <div class="function">
+    this.startupLevel = function(canvasWidth, canvasHeight)</br>
+    {</br>
+        this.blocks[0] = 3;</br>
+        this.blocks[1] = 2;</br>
+        this.blocks[2] = 1;</br>
+        this.blocks[3] = 1;</br>
+        this.blocks[4] = 1;</br>
+        this.blocks[5] = 1;</br>
+        this.blocks[6] = 2;</br>
+        this.blocks[7] = 3;</br>
+        this.blocks[8] = 2;</br>
+        this.blocks[9] = 1;</br>
+        this.blocks[10] = 2;</br>
+        this.blocks[11] = 3;</br>
+        this.blocks[12] = 4;</br>
+        this.blocks[13] = 5;</br>
+        this.blocks[14] = 4;</br>
+        this.blocks[15] = 3;</br>
+        </br>
+        this.powerups['1'] = 'Gem';</br>
+        this.powerups['6'] = 'Gem';</br>
+        this.powerups['10'] = 'Gem';</br>
+        this.powerups['14'] = 'LevelEndPost';</br>
+        </br>
+        this.addBlocks(canvasWidth, canvasHeight);</br>
+        this.addPowerups(canvasWidth, canvasHeight);</br>
+        </br>
+        return this;</br>
+    }</br>
+    </div>
+
+    <div class="function"><p>
+    this.addBlocks = function(canvasWidth, canvasHeight)</br>
+    {</br>
+        for (var x = 0; x < this.blocks.length; ++x)</br>
+        {</br>
+            for (var y = 0; y < this.blocks[x]; ++y)</br>
+            {</br>
+                <p>new VisualGameObject().startupVisualGameObject(g_ResourceManager.block, x * this.blockWidth, canvasHeight - (y + 1) * this.blockHeight, 4);</br></p>
+            }</br>
+        }</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function">
+    this.addPowerups = function(canvasWidth, canvasHeight)</br>
+    {</br>
+        for (var x = 0; x < this.blocks.length; ++x)</br>
+        {</br>
+            if (this.powerups[x])</br>
+            {</br>
+                var xPosition = x * this.blockWidth + this.blockWidth / 2;</br></br>
+                var yPosition = canvasHeight - this.groundHeight(x);</br></br>
+                switch(this.powerups[x])</br>
+                 {</br>
+                    case 'Gem':</br>
+<div class="resource"><p>new Powerup().startupPowerup(10, g_ResourceManager.gem, xPosition - g_ResourceManager.gem.width / 2, yPosition - g_ResourceManager.gem.height, 4, 1, 1);</div></br>
+                        break;</br>
+                    case 'LevelEndPost':</br>
+    <div class="resource">new LevelEndPost().startupLevelEndPost(g_ResourceManager.portal, xPosition - g_ResourceManager.portal.width / 2 / 4, yPosition - g_ResourceManager.portal.height, 4);</div></br>
+                        break;</br>
+                 }</br>
+            }</br>
+        }</br>
+    }</br>
+    
+    </div>
+
+    <div class="function"><p>
+    this.currentBlock = function(x)</br>
+    {</br>
+        return parseInt( x / this.blockWidth);</br>
+    }</br>
+    </p>
+    </div>
+    
+    <div class="function"><p>
+    this.groundHeight = function(blockIndex)</br>
+    {</br>
+        if (blockIndex < 0 || blockIndex > this.blocks.length) return 0;</br></br>
+
+        return this.blocks[blockIndex] *  this.blockHeight;</br>
+    }</br>
+    </p>
+    </div>
+    
+}</br>
+</div>
+
+</body>
+</html>

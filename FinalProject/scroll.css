@@ -1,0 +1,47 @@
+.scroll-pane {     position: relative;
+                   border: 5px dashed #B9B9B9;
+                   -webkit-border-radius: 10px;
+                   margin-left: 20px;
+	               width: 290px;
+	               height: 510px; 
+	               float:left;
+	               overflow: hidden;} 
+	               
+.scroll-content {  width: 1200px;
+                   height:4800px;
+	               padding-left: 20px;
+	               float:left;
+	               background-color:#dcdcdc;}
+	               	                  
+.scroll-bar { width: 285px;}
+.canvas-bar { width: 950px; margin:8px; left:6px;}
+                          
+.scroll-vertical {  height: 470px; }
+
+                   
+.scroll-title { padding:5px;
+                text-align:right;
+                color: black;
+                background-color:#dcdcdc;
+                cursor : pointer; 
+                z-index : 6000;}
+                
+.pane {     
+            border: 5px dashed #B9B9B9;
+            -webkit-border-radius: 10px;
+            margin:10px; 
+            width:800px;
+	        height: 510px; 
+	        float:left;
+	        overflow: hidden;} 
+
+	               
+.content {  width: 780px;
+            height:2000px;
+	        padding-left: 30px;
+	        float:left;
+	        background-color:#dcdcdc;}
+	               
+.vertical { height:480px;}
+
+.scroll-canvas { width: 4200px;  float: left; }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Inheritant Veiw</title>
+    <link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+    <link rel="stylesheet" href="Inheritance.css" type="text/css">
+    <link rel="stylesheet" href="scroll.css" type="text/css">
+    <script type="text/javascript" src="jquery-latest.js"></script>
+    <script type="text/javascript" src="jquery.effects.core.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.effects.slide.js"></script>
+	<script type="text/javascript" src="jquery.ui.core.js"></script>
+	<script type="text/javascript" src="jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="jquery.ui.mouse.js"></script>
+	<script type="text/javascript" src="jquery.ui.slider.js"></script>
+	<script type="text/javascript" src="jquery.ui.accordion.js"></script>
+	<script type="text/javascript" src="inheritance.js"></script>
+	<script type="text/javascript" src="jquery.drawline.js"></script>
+	<style>
+	.control { width:600px;
+               position:relative;
+               height:500px;
+               margin-left:100px;
+               background-color:white;
+               -webkit-border-radius: 10px;
+               display:inline-block; }
+
+    .coloum { width: 30%;  
+              position:relative; 
+              float:left; 
+              padding:10px; 
+              display:inline-block; 
+              z-index: 6000; }
+    
+    .unit{   padding: 5px;
+             margin:10px;
+             margin-top: 50px;
+             height:20px;
+             font-family: Georgia, serif;
+             font-size : 15px;
+             border: 2px solid #B9B9B9;
+             -webkit-border-radius: 5px;
+             text-align: center;}
+
+    </style>
+	  
+  </head>
+  <body>
+  <h1>Inheritance View</h1> 
+  
+  <div class="control">
+  
+  <div class="coloum">
+  <div></br></br></br></br></br></br></br></br></br></div>
+  <div class="unit" id="c"><a href="MainMenu/RepeatingGameObject.html">RepeatingGameObject</a></div>
+  <div class="unit" id="d"><a href="MainMenu/LevelEndPost.html">LevelEndPost</a></div>
+  </div>
+  
+  <div class="coloum">
+  <div class="unit" id="a"><a href="MainMenu/GameObject.html">GameObject</a></div>
+  <div class="unit" id="b"><a href="MainMenu/VisualGameObject.html">VisualGameObject</a></div>
+  <div class="unit" id="c"><a href="MainMenu/AnimatedGameObject.html">AnimatedGameObject</a></div>
+  <div class="unit" id="d"><a href="MainMenu/Player.html">Player</a></div>
+  </div>  
+  
+  <div class="coloum">
+  <div></br></br></br></br></br></br></br></br></br></div>
+  <div class="unit" id="c"><a href="MainMenu/MainMenu.html">Mainmenu</a></div>
+  <div class="unit" id="d"><a href="MainMenu/Powerup.html">Powerup</a></div>
+  </div>  
+  
+  </div>
+
+    <div class="scroll-pane ui-corner-all">
+    <div class="scroll-bar"></div>
+    <div class="scroll-content"></div>
+    <div class="scroll-vertical"></div>
+    </div>
+  
+</body>
+</html>

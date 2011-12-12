@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Powerup</title>
+  <head>
+<body>
+<div class="class">
+<p>Powerup()</br>
+
+    this.value = 0;</br>
+    </br>
+    this.sineWavePos = 0;</br>
+    </br>
+    this.bounceTime = 1;</br>
+    </br>
+    this.bounceSpeed = Math.PI / this.bounceTime;</br>
+    </br>
+    this.bounceHeight = 10;</br>
+    </br>
+    </p>
+    
+    <div class="function"></p>
+    this.startupPowerup = function(/**Number*/ value, /**Image*/ image, /**Number*/ x, /**Number*/ y, /**Number*/ z, /**Number*/ frameCount, /**Number*/ fps)</br>
+    {</br>
+     <p>this.startupAnimatedGameObject(image, x, y - this.bounceHeight, z, frameCount, fps);</br></p>
+        this.value = value;</br>
+        return this;</br>
+    }</br>
+    </p>
+    </div>
+
+    <div class="function"></p>
+    this.shutdownPowerup = function()</br>
+    {</br>
+        <p>this.shutdownAnimatedGameObject();</br></p>
+    }</br>
+
+    this.shutdown = function()</br>
+    {</br>
+        this.shutdownPowerup();</br>
+    }</br>
+    </p>
+    </div>
+    
+	<div class="function"></p>
+    this.update = function (/**Number*/ dt, /**CanvasRenderingContext2D*/context, /**Number*/ xScroll, /**Number*/ yScroll)</br>
+    {</br>
+        var lastSineWavePos = this.sineWavePos;</br>
+        this.sineWavePos += this.bounceSpeed * dt;</br>
+        this.y += (Math.sin(this.sineWavePos) - Math.sin(lastSineWavePos)) * this.bounceHeight;</br>
+        </br>
+        <div class="player"><p>if (this.collisionArea().intersects(g_player.collisionArea()))</br></div>
+        {</br>
+            this.shutdown();</br>
+            <div class="score"><p>g_score += this.value;</br></div>
+            <div class="applicaiton"<p>g_ApplicationManager.updateScore();</br></div>
+        }</br>
+    }</br>
+    </p>
+    </div>
+    
+}</br>
+</div>
+
+<div><p>
+Powerup.prototype = new AnimatedGameObject;</br>
+</p></div>
+
+</body>
+</html>
+
